@@ -1,0 +1,59 @@
+package mycollections;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+ class Participant
+ {
+	 private String participantName;
+	 
+	 public Participant(String participantName) {
+		 super();
+		 this.participantName=participantName;
+	 }
+
+	@Override
+	public String toString() {
+		return "Participant [participantName=" + participantName + "]";
+	}
+
+ }
+public class Seminardemo {
+public static void main (String[] args) throws IOException{
+	List<Participant> group1=new ArrayList();
+	List<Participant> group2=new ArrayList();
+	List<String> seminarrooms=new ArrayList();
+	
+	BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	for(byte counter=1;counter<=10;counter++)
+	{
+		System.out.println("Enter participant name:");
+		if(counter<=5)
+		{
+			group1.add(new Participant(br.readLine()));
+		}else
+		{
+			group2.add(new Participant(br.readLine()));
+          }
+		if(counter%5==0)
+		{System.out.println("Enetr seminar room name:");
+		seminarrooms.add(br.readLine());
+		}
+	}
+	System.out.println("Group1:");
+	System.out.println(seminarrooms.get(0));
+	display(group1);
+	System.out.println("Group2:");
+	System.out.println(seminarrooms.get(1));
+	display(group2);
+}
+public static void display(List<Participant> al)
+{
+	for(Participant p : al)
+	{
+		System.out.println(p);
+	}
+}
+}
